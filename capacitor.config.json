@@ -1,0 +1,7 @@
+{
+  "appId": "com.webepix.app.whatsis",
+  "appName": "WhatsIs",
+  "bundledWebRuntime": false,
+  "webDir": "dist/www",
+  "windowsAndroidStudioPath": "D:\\Program Files\\android-studio\\bin\\studio64.exe"
+}

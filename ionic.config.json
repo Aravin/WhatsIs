@@ -1,7 +1,8 @@
 {
   "name": "WhatsIs",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

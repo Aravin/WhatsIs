@@ -4,7 +4,50 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-card>
+  <ion-card-header>
+      <h2>Compose Message</h2>
+  </ion-card-header>
+
+  <ion-card-content>
+      <form class="whatsis-form">
+
+          <!-- For Country Code -->
+          <mat-form-field class="whatsis-full-width">
+            <input matInput type="text" placeholder="Country Code"  aria-label="countryCode" [matAutocomplete]="auto" [formControl]="countryCodeControl"
+              [(ngModel)]="countryCode">
+      
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let country of filteredOptions | async" [value]="country.country">
+                <span>{{country.country}}</span>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+      
+          <!-- For Phone Number -->
+          <mat-form-field class="whatsis-full-width">
+            <input name="phoneNumber" type="number" matInput placeholder="Phone Number" [(ngModel)]="phoneNumber">
+          </mat-form-field>
+      
+          <!-- For Message Content -->
+          <mat-form-field class="whatsis-full-width">
+            <textarea name="message" matInput placeholder="Your Message" [(ngModel)]="message"></textarea>
+          </mat-form-field>
+      
+          <!-- Send Button -->
+          <ion-button expand="block" fill="outline" color="secondary" (click)="_sendMessage()">
+            Send via WhatsApp!
+            <ion-icon slot="end" name="logo-whatsapp" end></ion-icon>
+          </ion-button>
+      
+        </form>
+  </ion-card-content>
+</ion-card>
+
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  
+
+  
+
+  
 </ion-content>
