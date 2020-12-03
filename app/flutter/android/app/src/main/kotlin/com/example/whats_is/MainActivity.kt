@@ -1,4 +1,4 @@
-package com.webepix.app.whatsis2
+package io.epix.whatsis2
 
 import io.flutter.embedding.android.FlutterActivity
 
