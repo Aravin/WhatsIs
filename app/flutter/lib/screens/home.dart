@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whats_is/widgets/app_drawer.dart';
+import 'package:whats_is/widgets/bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Card(
               child: Padding(
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           FormBuilderPhoneField(
-                            autofocus: true,
+                            // autofocus: true,
                             attribute: "phone",
                             defaultSelectedCountryIsoCode: 'IN',
                             priorityListByIsoCode: ['IN', 'US', 'GB'],
@@ -120,6 +121,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: CustomNavigationBar(currentIndex: 0),
     );
   }
 }

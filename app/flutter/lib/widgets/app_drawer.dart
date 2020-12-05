@@ -3,6 +3,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:whats_is/screens/home.dart';
 import 'package:whats_is/screens/terms.dart';
 import 'package:whats_is/screens/howto.dart';
+import 'package:whats_is/screens/status-viewer.dart';
 
 class CustomAppDrawer extends StatefulWidget {
   @override
@@ -23,13 +24,24 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
+            leading: Icon(Icons.message_outlined),
+            title: Text('WhatsApp Message'),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.group_work),
+            title: Text('WhatsApp Status'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => StatusViewerScreen()),
               );
             },
           ),
@@ -51,7 +63,7 @@ class _CustomAppDrawerState extends State<CustomAppDrawer> {
               Navigator.pop(context);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TermsScreen()),
+                MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
               );
             },
           ),

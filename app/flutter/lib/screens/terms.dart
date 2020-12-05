@@ -1,43 +1,29 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:whats_is/widgets/app_drawer.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-class TermsScreen extends StatefulWidget {
+class PrivacyPolicyScreen extends StatefulWidget {
   @override
-  _TermsScreenState createState() => _TermsScreenState();
+  _PrivacyPolicyScreenState createState() => _PrivacyPolicyScreenState();
 }
 
-class _TermsScreenState extends State<TermsScreen> {
-  bool isLoading = true;
-  final _key = UniqueKey();
-
-  @override
-  void initState() {
-    super.initState();
-    // Enable hybrid composition.
-    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-  }
-
+class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Terms & Privacy'),
+        textTheme: TextTheme(),
+        title: Text(
+          'Privacy Policy',
+        ),
       ),
-      drawer: CustomAppDrawer(),
-      body: WebView(
-        key: _key,
-        initialUrl: 'https://www.epix.io/terms-policy',
-        gestureNavigationEnabled: false,
-        javascriptMode: JavascriptMode.disabled,
-        onPageFinished: (String url) {
-          setState(() {
-            isLoading = false;
-          });
-        },
-      ),
+      body: Builder(builder: (BuildContext context) {
+        return WebviewScaffold(
+          url: 'https://www.epix.io/terms-policy',
+          withJavascript: false,
+          withZoom: false,
+          hidden: true,
+        );
+      }),
     );
   }
 }
